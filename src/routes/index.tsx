@@ -75,7 +75,7 @@ function Home() {
               <img src={logo.url} alt="" className="h-5 w-5 rounded-full object-cover" width={20} height={20} /> A Canadian non-profit
             </p>
             <h1 className="font-display text-5xl font-semibold leading-[0.95] sm:text-6xl lg:text-7xl">
-              Travel Fun and Active <span className="text-sunset">Community</span>
+              Travel Fun and Active Community <span className="text-sunset">(TFAC)</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-cream/85 sm:text-xl">
               A Canadian non-profit community development organization that uses travel, cultural exchange, outdoor
@@ -100,7 +100,7 @@ function Home() {
           <div className="lg:col-span-5">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-sunset">About Us</p>
             <h2 className="font-display text-4xl font-semibold leading-tight text-navy sm:text-5xl">
-              Strengthening communities through travel, recreation, and cultural exchange.
+              A Canadian non-profit community development organization.
             </h2>
           </div>
           <div className="space-y-5 text-lg leading-relaxed text-navy/80 lg:col-span-7">
@@ -131,9 +131,9 @@ function Home() {
         <div className="mx-auto max-w-4xl px-6 py-20 text-center lg:px-10 lg:py-28">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-amber">Our Mission</p>
           <p className="font-display text-3xl font-semibold leading-snug sm:text-4xl">
-            To reduce social isolation, promote physical and mental well-being, foster cultural understanding,
-            strengthen community connections, and create pathways to economic opportunity — through travel, education,
-            leadership development, skills-building, and community engagement.
+            Our mission is to reduce social isolation, promote physical and mental well-being, foster cultural
+            understanding, strengthen community connections, and create pathways to economic opportunity through
+            travel, education, leadership development, skills-building, and community engagement.
           </p>
         </div>
       </section>
