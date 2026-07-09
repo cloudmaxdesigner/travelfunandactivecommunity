@@ -237,7 +237,7 @@ function LatestPosts() {
           {data.slice(0, 2).map((p) => (
             <Link key={p.id} to="/blog/$slug" params={{ slug: p.slug }} className="group rounded-2xl border border-border/60 bg-background p-8 transition-all hover:-translate-y-1 hover:shadow-xl">
               <p className="text-xs font-semibold uppercase tracking-wider text-sunset">
-                {p.published_at && new Date(p.published_at).toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" })}
+                {p.published_at && new Date(p.published_at).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" })}
               </p>
               <h3 className="mt-2 font-display text-2xl font-semibold text-navy group-hover:text-sunset">{p.title}</h3>
               <p className="mt-3 text-navy/70">{p.excerpt}</p>
