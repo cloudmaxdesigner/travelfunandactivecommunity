@@ -1,143 +1,251 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { ArrowRight, Compass, HeartHandshake, Mountain, Sparkles, Users } from "lucide-react";
+import { Suspense } from "react";
+import { SiteLayout } from "@/components/site/SiteLayout";
+import { listPublishedEvents, listPublishedPosts } from "@/lib/site.functions";
+import hero from "@/assets/hero-hike.jpg";
+import community from "@/assets/community-event.jpg";
+import travel from "@/assets/group-travel.jpg";
+import leadership from "@/assets/leadership.jpg";
+import logo from "@/assets/tfac-logo.asset.json";
+
+const eventsQ = queryOptions({ queryKey: ["events", "upcoming"], queryFn: () => listPublishedEvents() });
+const postsQ = queryOptions({ queryKey: ["posts", "list"], queryFn: () => listPublishedPosts() });
 
 export const Route = createFileRoute("/")({
+  loader: ({ context }) =>
+    Promise.all([context.queryClient.ensureQueryData(eventsQ), context.queryClient.ensureQueryData(postsQ)]),
   head: () => ({
     meta: [
-      { title: "SkyElite — Premium Private Jets" },
+      { title: "Travel, Fun and Active Community — Connect, explore, belong" },
       {
         name: "description",
         content:
-          "SkyElite offers premium, accessible private jet charters. Discover elevated travel designed for those whose dedication deserves recognition.",
+          "A Canadian non-profit using travel, cultural exchange, outdoor recreation, and leadership to build stronger, more inclusive communities.",
       },
-      { property: "og:title", content: "SkyElite — Premium Private Jets" },
-      {
-        property: "og:description",
-        content:
-          "Premium, accessible private jet charters. Your dedication deserves recognition.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "SkyElite — Premium Private Jets" },
-      {
-        name: "twitter:description",
-        content:
-          "Premium, accessible private jet charters. Your dedication deserves recognition.",
-      },
+      { property: "og:title", content: "Travel, Fun and Active Community" },
+      { property: "og:description", content: "Travel, cultural exchange, outdoor recreation, and community-building across Canada." },
     ],
   }),
-  component: Index,
+  component: Home,
 });
 
-const NAV_ITEMS = ["Start", "Story", "Rates", "Benefits", "FAQ"];
+const PROGRAMS = [
+  { icon: Mountain, title: "Outdoor & Hikes", body: "Weekly community hikes and outdoor recreation across the GTA and beyond." },
+  { icon: Compass, title: "Group Travel", body: "Curated group trips designed for connection, culture, and confidence." },
+  { icon: Users, title: "Cultural Exchange", body: "Potlucks, storytelling, and cross-cultural nights that celebrate every background." },
+  { icon: Sparkles, title: "Leadership & Skills", body: "Workshops in leadership, employability, entrepreneurship, and communications." },
+  { icon: HeartHandshake, title: "Newcomer Support", body: "Programs that help newcomers find community, mentorship, and opportunity." },
+  { icon: Users, title: "Wellness & Belonging", body: "Wellness initiatives that reduce social isolation and support whole-person health." },
+];
 
-const VIDEO_URL =
-  "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_091828_e240eb17-6edc-4129-ad9d-98678e3fd238.mp4";
-
-function Index() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [bookHover, setBookHover] = useState(false);
-
+function Home() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <section className="relative h-screen overflow-hidden">
-        <video
-          className="absolute inset-0 w-full h-full object-cover"
-          src={VIDEO_URL}
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
-
-        <div className="relative h-full flex flex-col">
-          <nav className="relative max-w-7xl mx-auto w-full px-8 py-6 flex items-center justify-between">
-            <a
-              href="#"
-              className="text-2xl font-semibold text-gray-900"
-            >
-              SkyElite
-            </a>
-
-            <ul className="hidden md:flex gap-8">
-              {NAV_ITEMS.map((item) => (
-                <li key={item}>
-                  <a
-                    href={`#${item.toLowerCase()}`}
-                    className="text-gray-900 hover:text-gray-700 transition-colors"
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-
-            <button
-              type="button"
-              className="md:hidden text-gray-900"
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-              onClick={() => setMenuOpen((v) => !v)}
-            >
-              {menuOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
-
-            {menuOpen && (
-              <div className="md:hidden absolute top-full right-8 mt-2 bg-white/95 backdrop-blur rounded-xl shadow-lg p-4 flex flex-col gap-3 min-w-[160px]">
-                {NAV_ITEMS.map((item) => (
-                  <a
-                    key={item}
-                    href={`#${item.toLowerCase()}`}
-                    className="text-gray-900 hover:text-gray-700 transition-colors"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {item}
-                  </a>
-                ))}
-              </div>
-            )}
-          </nav>
-
-          <main className="flex-1 flex items-center justify-center">
-            <div className="-mt-80 text-center flex flex-col items-center px-6">
-              <span className="text-sm font-semibold text-gray-600 tracking-wider mb-4 uppercase">
-                Private Jets
-              </span>
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-normal text-gray-500 leading-none tracking-tighter">
-                Premium.
-              </h1>
-              <h1
-                className="text-6xl md:text-7xl lg:text-8xl font-normal leading-none tracking-tighter"
-                style={{ color: "#202A36", marginTop: "-12px" }}
-              >
-                Accessible.
-              </h1>
-              <p className="text-lg md:text-xl text-gray-600 mt-6 mb-6 max-w-2xl">
-                Your dedication deserves recognition.
-              </p>
-              <div className="flex gap-4 justify-center">
-                <button
-                  type="button"
-                  className="px-4 py-2 rounded-full bg-gray-300 text-gray-800 font-medium hover:bg-gray-400 transition-colors"
-                >
-                  Discover
-                </button>
-                <button
-                  type="button"
-                  className="px-4 py-2 rounded-full text-white font-medium transition-colors"
-                  style={{
-                    backgroundColor: bookHover ? "#1a2229" : "#202A36",
-                  }}
-                  onMouseEnter={() => setBookHover(true)}
-                  onMouseLeave={() => setBookHover(false)}
-                >
-                  Book Now
-                </button>
-              </div>
+    <SiteLayout>
+      {/* HERO */}
+      <section className="relative isolate overflow-hidden bg-navy text-cream">
+        <img src={hero} alt="TFAC community members hiking at sunset" width={1920} height={1200} className="absolute inset-0 h-full w-full object-cover opacity-45" />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/60 to-navy" aria-hidden />
+        <div className="relative mx-auto max-w-7xl px-6 pb-24 pt-24 sm:pt-32 lg:px-10 lg:pb-32 lg:pt-40">
+          <div className="max-w-3xl">
+            <p className="mb-6 inline-flex items-center gap-2 rounded-full bg-cream/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-amber backdrop-blur">
+              <img src={logo.url} alt="" className="h-5 w-5 rounded-full object-cover" width={20} height={20} /> A Canadian non-profit
+            </p>
+            <h1 className="font-display text-5xl font-semibold leading-[0.95] sm:text-6xl lg:text-7xl">
+              Travel. Connect.<br />
+              <span className="text-sunset">Belong.</span>
+            </h1>
+            <p className="mt-6 max-w-xl text-lg text-cream/85 sm:text-xl">
+              We use travel, cultural exchange, outdoor recreation, and leadership development to build the kind of
+              community you'd want to move next door to.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Link to="/get-involved" className="inline-flex items-center gap-2 rounded-full bg-sunset px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-sunset/30 transition-colors hover:bg-sunset/90">
+                Get involved <ArrowRight size={16} />
+              </Link>
+              <Link to="/events" className="inline-flex items-center gap-2 rounded-full border border-cream/30 bg-cream/5 px-6 py-3 text-sm font-semibold text-cream backdrop-blur hover:bg-cream/10">
+                See upcoming events
+              </Link>
             </div>
-          </main>
+          </div>
         </div>
       </section>
-    </div>
+
+      {/* MISSION */}
+      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
+        <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
+          <div className="lg:col-span-5">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-sunset">Our mission</p>
+            <h2 className="font-display text-4xl font-semibold leading-tight text-navy sm:text-5xl">
+              A community where every arrival feels like a homecoming.
+            </h2>
+          </div>
+          <div className="space-y-5 text-lg leading-relaxed text-navy/80 lg:col-span-7">
+            <p>
+              TFAC reduces social isolation, promotes physical and mental well-being, fosters cultural understanding,
+              strengthens community connections, and creates pathways to economic opportunity — through travel,
+              education, leadership development, skills-building, and community engagement.
+            </p>
+            <p>
+              We serve individuals, families, newcomers, youth, women, seniors, and underserved communities across Canada.
+              Every program is designed to be accessible, inclusive, and genuinely fun.
+            </p>
+            <Link to="/about" className="inline-flex items-center gap-2 text-sunset font-semibold hover:gap-3 transition-all">
+              Read our story <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* PROGRAMS */}
+      <section className="bg-cream/60">
+        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
+          <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-sunset">What we do</p>
+              <h2 className="font-display text-4xl font-semibold text-navy sm:text-5xl">Programs built around belonging.</h2>
+            </div>
+            <Link to="/programs" className="inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-sunset">
+              All programs <ArrowRight size={16} />
+            </Link>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {PROGRAMS.map((p) => (
+              <div key={p.title} className="rounded-2xl border border-border/60 bg-background p-6 transition-shadow hover:shadow-lg">
+                <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-sunset/10 text-sunset">
+                  <p.icon size={22} />
+                </div>
+                <h3 className="mb-2 font-display text-xl font-semibold text-navy">{p.title}</h3>
+                <p className="text-navy/70">{p.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* EVENTS */}
+      <Suspense fallback={null}><UpcomingEvents /></Suspense>
+
+      {/* FOUNDER */}
+      <section className="bg-navy text-cream">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 lg:grid-cols-2 lg:gap-16 lg:px-10">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
+            <img src={leadership} alt="Women in leadership workshop" width={1600} height={1200} loading="lazy" className="h-full w-full object-cover" />
+          </div>
+          <div className="flex flex-col justify-center">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-amber">Founder</p>
+            <h2 className="font-display text-4xl font-semibold sm:text-5xl">Faith Oloruntoba</h2>
+            <p className="mt-2 text-lg text-cream/80">Founder &amp; Executive Director</p>
+            <div className="mt-6 space-y-4 text-cream/80">
+              <p>
+                Faith is a Canadian entrepreneur, community builder, and travel professional. With over a decade in
+                communications, UX, business development, and community building, she has helped thousands of people
+                travel, lead, and belong.
+              </p>
+              <p>
+                She's also the founder of <span className="text-amber">Ivory Luxe Journeys</span> and <span className="text-amber">Cotriply</span>,
+                an AI-powered platform simplifying group travel.
+              </p>
+            </div>
+            <div className="mt-8">
+              <Link to="/about" className="inline-flex items-center gap-2 rounded-full bg-sunset px-5 py-2.5 text-sm font-semibold text-white hover:bg-sunset/90">
+                More about our leadership <ArrowRight size={16} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* BLOG */}
+      <Suspense fallback={null}><LatestPosts /></Suspense>
+
+      {/* PHOTO STRIP */}
+      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+        <div className="mb-8 flex items-end justify-between">
+          <div>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-sunset">From the community</p>
+            <h2 className="font-display text-3xl font-semibold text-navy sm:text-4xl">See where we've been.</h2>
+          </div>
+          <a href="https://www.instagram.com/travelfunandactivecommunity/" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-navy hover:text-sunset">
+            Follow on Instagram →
+          </a>
+        </div>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {[hero, community, travel, leadership].map((src, i) => (
+            <div key={i} className="aspect-square overflow-hidden rounded-2xl">
+              <img src={src} alt="" width={800} height={800} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+            </div>
+          ))}
+        </div>
+      </section>
+    </SiteLayout>
+  );
+}
+
+function UpcomingEvents() {
+  const { data } = useSuspenseQuery(eventsQ);
+  if (!data.length) return null;
+  return (
+    <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
+      <div className="mb-12 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+        <div>
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-sunset">Coming up</p>
+          <h2 className="font-display text-4xl font-semibold text-navy sm:text-5xl">Upcoming events.</h2>
+        </div>
+        <Link to="/events" className="inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-sunset">
+          All events <ArrowRight size={16} />
+        </Link>
+      </div>
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {data.slice(0, 3).map((e) => (
+          <Link key={e.id} to="/events/$slug" params={{ slug: e.slug }} className="group flex flex-col overflow-hidden rounded-2xl border border-border/60 bg-background transition-all hover:-translate-y-1 hover:shadow-xl">
+            <div className="aspect-[16/10] overflow-hidden bg-cream">
+              <img src={community} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            </div>
+            <div className="flex flex-1 flex-col p-6">
+              <p className="text-xs font-semibold uppercase tracking-wider text-sunset">
+                {new Date(e.starts_at).toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" })}
+              </p>
+              <h3 className="mt-2 font-display text-xl font-semibold text-navy group-hover:text-sunset">{e.title}</h3>
+              {e.location && <p className="mt-1 text-sm text-navy/60">{e.location}</p>}
+              <p className="mt-3 line-clamp-3 text-sm text-navy/70">{e.description}</p>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function LatestPosts() {
+  const { data } = useSuspenseQuery(postsQ);
+  if (!data.length) return null;
+  return (
+    <section className="bg-cream/60">
+      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
+        <div className="mb-12 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <div>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-sunset">From the journal</p>
+            <h2 className="font-display text-4xl font-semibold text-navy sm:text-5xl">Latest stories.</h2>
+          </div>
+          <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-sunset">
+            All posts <ArrowRight size={16} />
+          </Link>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2">
+          {data.slice(0, 2).map((p) => (
+            <Link key={p.id} to="/blog/$slug" params={{ slug: p.slug }} className="group rounded-2xl border border-border/60 bg-background p-8 transition-all hover:-translate-y-1 hover:shadow-xl">
+              <p className="text-xs font-semibold uppercase tracking-wider text-sunset">
+                {p.published_at && new Date(p.published_at).toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" })}
+              </p>
+              <h3 className="mt-2 font-display text-2xl font-semibold text-navy group-hover:text-sunset">{p.title}</h3>
+              <p className="mt-3 text-navy/70">{p.excerpt}</p>
+              <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sunset">Read more <ArrowRight size={16} /></span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
