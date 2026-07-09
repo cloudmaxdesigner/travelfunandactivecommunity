@@ -166,7 +166,7 @@ function Home() {
           </div>
           <div>
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-sunset">Community Impact</p>
-            <h2 className="font-display text-4xl font-semibold text-navy sm:text-5xl">A growing, diverse community across Canada.</h2>
+            <h2 className="font-display text-4xl font-semibold text-navy sm:text-5xl">TFAC serves a growing and diverse community across Canada.</h2>
             <p className="mt-6 text-lg leading-relaxed text-navy/80">
               TFAC serves a growing and diverse community across Canada. Through our programs and events, we bring
               together individuals from different backgrounds, cultures, and age groups to build relationships, improve
@@ -221,7 +221,7 @@ function Home() {
       <section className="bg-navy text-cream">
         <div className="mx-auto max-w-4xl px-6 py-20 lg:px-10 lg:py-24">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-amber">Partnership Interest</p>
-          <h2 className="font-display text-3xl font-semibold sm:text-4xl">Building international partnerships.</h2>
+          <h2 className="font-display text-3xl font-semibold sm:text-4xl">International collaboration for shared learning and stronger communities.</h2>
           <div className="mt-6 space-y-5 text-lg text-cream/85">
             <p>
               Travel Fun and Active Community is interested in building partnerships with organizations in Jamaica to
