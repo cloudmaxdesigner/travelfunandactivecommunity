@@ -125,7 +125,7 @@ function EventsPanel() {
               {data.map((e: EventRow) => (
                 <tr key={e.id} className="border-t border-border">
                   <td className="p-3 font-medium text-navy">{e.title}</td>
-                  <td className="p-3 text-navy/70">{new Date(e.starts_at).toLocaleDateString()}</td>
+                  <td className="p-3 text-navy/70">{new Date(e.starts_at).toLocaleDateString("en-US")}</td>
                   <td className="p-3">{e.published ? "✓" : "—"}</td>
                   <td className="p-3 text-right">
                     <button className="mr-3 text-sunset hover:underline" onClick={() => setEditing(e)}>Edit</button>

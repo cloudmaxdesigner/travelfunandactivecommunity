@@ -51,7 +51,7 @@ function EventsPage() {
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-sunset">
-                    <Calendar size={14} /> {new Date(e.starts_at).toLocaleDateString(undefined, { weekday: "short", month: "long", day: "numeric", year: "numeric" })}
+                    <Calendar size={14} /> {new Date(e.starts_at).toLocaleDateString("en-US", { weekday: "short", month: "long", day: "numeric", year: "numeric" })}
                   </p>
                   <h2 className="mt-2 font-display text-2xl font-semibold text-navy group-hover:text-sunset">{e.title}</h2>
                   {e.location && (
