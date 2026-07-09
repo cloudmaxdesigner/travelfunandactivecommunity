@@ -205,7 +205,7 @@ function UpcomingEvents() {
             </div>
             <div className="flex flex-1 flex-col p-6">
               <p className="text-xs font-semibold uppercase tracking-wider text-sunset">
-                {new Date(e.starts_at).toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" })}
+                {new Date(e.starts_at).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" })}
               </p>
               <h3 className="mt-2 font-display text-xl font-semibold text-navy group-hover:text-sunset">{e.title}</h3>
               {e.location && <p className="mt-1 text-sm text-navy/60">{e.location}</p>}
