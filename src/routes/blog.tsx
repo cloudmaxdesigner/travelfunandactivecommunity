@@ -38,7 +38,7 @@ function Blog() {
             {data.map((p) => (
               <Link key={p.id} to="/blog/$slug" params={{ slug: p.slug }} className="group block py-8 first:pt-0">
                 <p className="text-xs font-semibold uppercase tracking-wider text-sunset">
-                  {p.published_at && new Date(p.published_at).toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" })}
+                  {p.published_at && new Date(p.published_at).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
                 </p>
                 <h2 className="mt-2 font-display text-3xl font-semibold text-navy group-hover:text-sunset">{p.title}</h2>
                 <p className="mt-3 text-lg text-navy/70">{p.excerpt}</p>

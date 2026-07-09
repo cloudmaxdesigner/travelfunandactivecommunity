@@ -48,7 +48,7 @@ function PostDetail() {
           <ArrowLeft size={16} /> All posts
         </Link>
         <p className="text-xs font-semibold uppercase tracking-wider text-sunset">
-          {post.published_at && new Date(post.published_at).toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" })}
+          {post.published_at && new Date(post.published_at).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
         </p>
         <h1 className="mt-3 font-display text-5xl font-semibold leading-tight text-navy">{post.title}</h1>
         <p className="mt-5 text-xl text-navy/70">{post.excerpt}</p>
