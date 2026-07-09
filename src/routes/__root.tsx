@@ -77,30 +77,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Travel, Fun and Active Community — Connect, explore, belong" },
+      {
+        name: "description",
+        content:
+          "TFAC is a Canadian non-profit strengthening communities through travel, cultural exchange, outdoor recreation, leadership, and skills-building.",
+      },
+      { name: "author", content: "Travel, Fun and Active Community" },
+      { property: "og:site_name", content: "Travel, Fun and Active Community" },
+      { property: "og:title", content: "Travel, Fun and Active Community" },
+      {
+        property: "og:description",
+        content: "Travel, cultural exchange, outdoor recreation, and community-building across Canada.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      {
-        rel: "preconnect",
-        href: "https://fonts.gstatic.com",
-        crossOrigin: "anonymous",
-      },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
-      },
+      { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
