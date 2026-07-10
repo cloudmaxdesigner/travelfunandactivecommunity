@@ -15,11 +15,11 @@ export const Route = createFileRoute("/")({
         content:
           "TFAC is a Canadian non-profit using travel, cultural exchange, outdoor recreation, leadership development, and skills-building to strengthen communities.",
       },
-      { property: "og:title", content: "Travel, Fun and Active Community (TFAC)" },
+      { property: "og:title", content: "Travel, Fun and Active Community (TFAC) — Canadian non-profit" },
       {
         property: "og:description",
         content:
-          "A Canadian non-profit community development organization strengthening communities through travel, recreation, leadership, and skills-building.",
+          "TFAC is a Canadian non-profit using travel, cultural exchange, outdoor recreation, leadership development, and skills-building to strengthen communities.",
       },
     ],
   }),

@@ -77,21 +77,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Travel, Fun and Active Community — Connect, explore, belong" },
+      { title: "Travel, Fun and Active Community (TFAC) — Canadian non-profit" },
       {
         name: "description",
         content:
-          "TFAC is a Canadian non-profit strengthening communities through travel, cultural exchange, outdoor recreation, leadership, and skills-building.",
+          "TFAC is a Canadian non-profit using travel, cultural exchange, outdoor recreation, leadership development, and skills-building to strengthen communities.",
       },
       { name: "author", content: "Travel, Fun and Active Community" },
       { property: "og:site_name", content: "Travel, Fun and Active Community" },
-      { property: "og:title", content: "Travel, Fun and Active Community" },
+      { property: "og:title", content: "Travel, Fun and Active Community (TFAC) — Canadian non-profit" },
       {
         property: "og:description",
-        content: "Travel, cultural exchange, outdoor recreation, and community-building across Canada.",
+        content: "TFAC is a Canadian non-profit using travel, cultural exchange, outdoor recreation, leadership development, and skills-building to strengthen communities.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Travel, Fun and Active Community (TFAC) — Canadian non-profit" },
+      { name: "twitter:description", content: "TFAC is a Canadian non-profit using travel, cultural exchange, outdoor recreation, leadership development, and skills-building to strengthen communities." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/98c5b40c-c8d4-4e9d-93b3-19373817cb4d/id-preview-aa44b1f7--f776756f-4f15-421e-83c4-f1e7f7578798.lovable.app-1783640678929.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/98c5b40c-c8d4-4e9d-93b3-19373817cb4d/id-preview-aa44b1f7--f776756f-4f15-421e-83c4-f1e7f7578798.lovable.app-1783640678929.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
