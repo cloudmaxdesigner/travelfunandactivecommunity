@@ -327,17 +327,18 @@ function Home() {
           </div>
           <div className="flex flex-col justify-center">
             <h2 className="font-display text-4xl font-semibold text-navy sm:text-5xl">Adaora Igbo</h2>
-            <p className="mt-2 text-lg text-navy/70">Founder, Women in Canada Empowerment Initiative</p>
+            <p className="mt-2 text-lg text-navy/70">Director, Programming and Content Strategy</p>
             <div className="mt-6 space-y-4 text-navy/80">
               <p>
-                Adaora Igbo is the founder of
+                Adaora is a lifestyle and beauty entrepreneur with 10 years of experience. A content strategist, content
+                creator, and an advocate who is passionate about helping women navigate life and growth opportunities in
+                Canada.
+              </p>
+              <p>
+                She is also the founder of
                 <span className="font-semibold text-navy"> Women in Canada Empowerment Initiative</span>, a platform
                 dedicated to supporting and empowering immigrant women through information, networking, opportunities,
                 and community support.
-              </p>
-              <p>
-                She is a businesswoman with 10 years of experience, a content creator, and an advocate passionate about
-                helping women navigate life and growth opportunities in Canada.
               </p>
             </div>
           </div>
