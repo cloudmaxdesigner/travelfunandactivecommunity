@@ -287,6 +287,8 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <InstagramSection />
     </SiteLayout>
   );
 }
