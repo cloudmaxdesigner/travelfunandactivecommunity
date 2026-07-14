@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Check } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import { InstagramSection } from "@/components/site/InstagramSection";
 import hero from "@/assets/hero-hike.jpg";
 import community from "@/assets/community-event.jpg";
 import leadership from "@/assets/leadership.jpg";
