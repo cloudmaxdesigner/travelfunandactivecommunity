@@ -320,6 +320,28 @@ function Home() {
             <img src={fejiro.url} alt="Fejiro Ikpeni" width={1600} height={2000} loading="lazy" className="h-full w-full object-cover" />
           </div>
         </div>
+
+        <div className="mt-20 grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
+            <img src={adaora.url} alt="Adaora Igbo" width={1600} height={2000} loading="lazy" className="h-full w-full object-cover" />
+          </div>
+          <div className="flex flex-col justify-center">
+            <h2 className="font-display text-4xl font-semibold text-navy sm:text-5xl">Adaora Igbo</h2>
+            <p className="mt-2 text-lg text-navy/70">Founder, Women in Canada Empowerment Initiative</p>
+            <div className="mt-6 space-y-4 text-navy/80">
+              <p>
+                Adaora Igbo is the founder of
+                <span className="font-semibold text-navy"> Women in Canada Empowerment Initiative</span>, a platform
+                dedicated to supporting and empowering immigrant women through information, networking, opportunities,
+                and community support.
+              </p>
+              <p>
+                She is a businesswoman with 10 years of experience, a content creator, and an advocate passionate about
+                helping women navigate life and growth opportunities in Canada.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
 
