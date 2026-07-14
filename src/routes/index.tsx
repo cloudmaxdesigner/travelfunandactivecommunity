@@ -4,7 +4,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { InstagramSection } from "@/components/site/InstagramSection";
 import hero from "@/assets/hero-hike.jpg";
 import community from "@/assets/community-event.jpg";
-import leadership from "@/assets/leadership.jpg";
+import leadership from "@/assets/faith-oloruntoba.png.asset.json";
 import logo from "@/assets/tfac-logo.asset.json";
 
 export const Route = createFileRoute("/")({
