@@ -252,11 +252,12 @@ function Home() {
           </p>
         </div>
 
-        <div className="grid gap-16 md:grid-cols-2 md:gap-x-10 md:gap-y-20 lg:gap-x-14">
-          {LEADERS.map((leader, i) => (
-            <LeaderCard key={leader.slug} leader={leader} position={i % 2 === 0 ? "left" : "right"} />
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {LEADERS.map((leader) => (
+            <LeaderCard key={leader.slug} leader={leader} />
           ))}
         </div>
+
       </section>
 
 
