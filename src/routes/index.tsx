@@ -318,7 +318,7 @@ function Home() {
             </div>
           </div>
           <div className="order-1 relative aspect-[4/5] overflow-hidden rounded-3xl lg:order-2">
-            <img src={fejiro.url} alt="Fejiro Ikpeni" width={1600} height={2000} loading="lazy" className="h-full w-full object-cover" />
+            <img src={fejiro.url} alt="Fejiro Ikpeni" width={1600} height={2000} loading="lazy" className="h-full w-full scale-150 object-cover object-top" />
           </div>
         </div>
 
