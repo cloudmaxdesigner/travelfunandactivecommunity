@@ -344,6 +344,32 @@ function Home() {
             </div>
           </div>
         </div>
+
+        <div className="mt-20 grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="order-2 flex flex-col justify-center lg:order-1">
+            <h2 className="font-display text-4xl font-semibold text-navy sm:text-5xl">Abigail Olusola-Omisore</h2>
+            <p className="mt-2 text-lg text-navy/70">Director, Planning and Resource Development</p>
+            <div className="mt-6 space-y-4 text-navy/80">
+              <p>
+                Abigail is a Senior Business Analyst and digital transformation professional with over seven years of
+                experience delivering business and technology solutions across Salesforce CRM, process optimization, and
+                stakeholder engagement.
+              </p>
+              <p>
+                She is passionate about using technology, innovation, and education to create opportunities that empower
+                individuals and communities.
+              </p>
+              <p>
+                Beyond her corporate career, Abigail is a tech mentor and BA coach, passionate about helping and
+                continuously inspiring transitioning professionals define their career plan and build the confidence to
+                pursue growth, purpose, and excellence.
+              </p>
+            </div>
+          </div>
+          <div className="order-1 relative aspect-[4/5] overflow-hidden rounded-3xl lg:order-2">
+            <img src={abigail.url} alt="Abigail Olusola-Omisore" width={1600} height={2000} loading="lazy" className="h-full w-full object-cover" />
+          </div>
+        </div>
       </section>
 
 
