@@ -287,7 +287,34 @@ function Home() {
             </div>
           </div>
         </div>
+
+        <div className="mt-20 grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="order-2 flex flex-col justify-center lg:order-1">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-sunset">Leadership</p>
+            <h2 className="font-display text-4xl font-semibold text-navy sm:text-5xl">Fejiro Ikpeni</h2>
+            <p className="mt-2 text-lg text-navy/70">Pharmacist, Health Researcher & Wellness Advocate</p>
+            <div className="mt-6 space-y-4 text-navy/80">
+              <p>
+                Fejiro Ikpeni is a pharmacist and health researcher with a Master's degree in International Health.
+                She is passionate about making fitness and wellness feel simple, realistic, and fun.
+              </p>
+              <p>
+                As a published author of both academic work and her weight loss guide
+                <span className="font-semibold text-navy"> Weight Loss As Simple As ABC</span>, she loves helping women
+                feel more confident in their bodies without the overwhelm.
+              </p>
+              <p>
+                Outside of work, she's a proud wife and mom of two, balancing family life with showing up for herself
+                and inspiring others to do the same.
+              </p>
+            </div>
+          </div>
+          <div className="order-1 relative aspect-[4/5] overflow-hidden rounded-3xl lg:order-2">
+            <img src={fejiro.url} alt="Fejiro Ikpeni" width={1600} height={2000} loading="lazy" className="h-full w-full object-cover" />
+          </div>
+        </div>
       </section>
+
 
       <InstagramSection />
     </SiteLayout>
