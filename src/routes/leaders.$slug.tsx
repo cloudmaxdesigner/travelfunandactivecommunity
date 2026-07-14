@@ -116,7 +116,7 @@ function LeaderDetail() {
             </h1>
 
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-navy/80">
-              {leader.fullBio.map((para, i) => (
+              {leader.fullBio.map((para: string, i: number) => (
                 <p key={i}>{para}</p>
               ))}
             </div>
