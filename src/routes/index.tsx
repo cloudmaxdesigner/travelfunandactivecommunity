@@ -292,20 +292,26 @@ function Home() {
           <div className="order-2 flex flex-col justify-center lg:order-1">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-sunset">Leadership</p>
             <h2 className="font-display text-4xl font-semibold text-navy sm:text-5xl">Fejiro Ikpeni</h2>
-            <p className="mt-2 text-lg text-navy/70">Pharmacist, Health Researcher & Wellness Advocate</p>
+            <p className="mt-2 text-lg text-navy/70">Director, Community Wellness and Membership Engagement</p>
             <div className="mt-6 space-y-4 text-navy/80">
               <p>
-                Fejiro Ikpeni is a pharmacist and health researcher with a Master's degree in International Health.
+                Fejiro is a pharmacist and health researcher with a Master's degree in International Health.
+              </p>
+              <p>
                 She is passionate about making fitness and wellness feel simple, realistic, and fun.
               </p>
               <p>
-                As a published author of both academic work and her weight loss guide
+                As a published author of both academic work and weight loss guide
                 <span className="font-semibold text-navy"> Weight Loss As Simple As ABC</span>, she loves helping women
                 feel more confident in their bodies without the overwhelm.
               </p>
               <p>
                 Outside of work, she's a proud wife and mom of two, balancing family life with showing up for herself
                 and inspiring others to do the same.
+              </p>
+              <p>
+                Fejiro is committed to TFAC community engagement, inclusion, and creating spaces where everyone feels
+                seen and valued.
               </p>
             </div>
           </div>
