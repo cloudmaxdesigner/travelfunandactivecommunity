@@ -241,132 +241,21 @@ function Home() {
 
       {/* LEADERSHIP */}
       <section id="leadership" className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
-            <img src={leadership.url} alt="Faith Oloruntoba" width={1600} height={2000} loading="lazy" className="h-full w-full object-cover" />
-          </div>
-          <div className="flex flex-col justify-center">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-sunset">Leadership</p>
-            <h2 className="font-display text-4xl font-semibold text-navy sm:text-5xl">Faith Oloruntoba</h2>
-            <p className="mt-2 text-lg text-navy/70">Founder and Executive Director</p>
-            <div className="mt-6 space-y-4 text-navy/80">
-              <p>
-                Faith Oloruntoba is a Canadian entrepreneur, community builder, travel professional, and advocate for
-                inclusive economic and community development. She is the Founder and Executive Director of Travel Fun
-                and Active Community (TFAC), where she leads initiatives that bring people together through travel,
-                cultural exchange, outdoor recreation, leadership development, wellness programming, and community
-                engagement.
-              </p>
-              <p>
-                With over a decade of experience in communications, user experience design, business development, and
-                community building, Faith has dedicated her career to creating opportunities that foster connection,
-                belonging, personal growth, and social impact. She is also the founder of multiple ventures, including
-                <span className="font-semibold text-navy"> Ivory Luxe Journeys</span>, a travel consultancy that has
-                coordinated experiences for thousands of travelers across more than 200 destinations worldwide, and
-                <span className="font-semibold text-navy"> Cotriply</span>, an AI-powered platform designed to simplify
-                group travel coordination for organizations and communities.
-              </p>
-              <p>
-                Through her work across the nonprofit, corporate, and entrepreneurial sectors, Faith has helped create
-                opportunities for thousands of individuals to participate in travel, leadership programs, skills
-                development initiatives, and community-building activities. Her programs emphasize inclusion, cultural
-                understanding, active living, and economic empowerment, particularly for women, youth, newcomers, and
-                underserved communities.
-              </p>
-              <p>
-                Faith is passionate about using travel, education, technology, and community engagement as tools for
-                social change. She believes that exposure to new experiences, cultures, and opportunities can help
-                individuals build confidence, expand their networks, strengthen their skills, and unlock pathways to
-                greater economic participation and community leadership.
-              </p>
-              <p>
-                She holds academic and professional credentials in communications, business leadership, and design, and
-                has received recognition for her contributions to entrepreneurship, innovation, and community impact in
-                Canada.
-              </p>
-            </div>
-          </div>
+        <div className="mb-14 max-w-2xl">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-sunset">Leadership</p>
+          <h2 className="font-display text-4xl font-semibold text-navy sm:text-5xl">
+            The team behind TFAC.
+          </h2>
+          <p className="mt-4 text-lg text-navy/70">
+            A collective of leaders bringing travel, wellness, technology, and community-building expertise to
+            everything we do.
+          </p>
         </div>
 
-        <div className="mt-20 grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="order-2 flex flex-col justify-center lg:order-1">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-sunset">Leadership</p>
-            <h2 className="font-display text-4xl font-semibold text-navy sm:text-5xl">Fejiro Ikpeni</h2>
-            <p className="mt-2 text-lg text-navy/70">Director, Community Wellness and Membership Engagement</p>
-            <div className="mt-6 space-y-4 text-navy/80">
-              <p>
-                Fejiro is a pharmacist and health researcher with a Master's degree in International Health.
-              </p>
-              <p>
-                She is passionate about making fitness and wellness feel simple, realistic, and fun.
-              </p>
-              <p>
-                As a published author of both academic work and weight loss guide
-                <span className="font-semibold text-navy"> Weight Loss As Simple As ABC</span>, she loves helping women
-                feel more confident in their bodies without the overwhelm.
-              </p>
-              <p>
-                Outside of work, she's a proud wife and mom of two, balancing family life with showing up for herself
-                and inspiring others to do the same.
-              </p>
-              <p>
-                Fejiro is committed to TFAC community engagement, inclusion, and creating spaces where everyone feels
-                seen and valued.
-              </p>
-            </div>
-          </div>
-          <div className="order-1 relative aspect-[4/5] overflow-hidden rounded-3xl lg:order-2">
-            <img src={fejiro.url} alt="Fejiro Ikpeni" width={1600} height={2000} loading="lazy" className="h-full w-full scale-150 object-cover object-top" />
-          </div>
-        </div>
-
-        <div className="mt-20 grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
-            <img src={adaora.url} alt="Adaora Igbo" width={1600} height={2000} loading="lazy" className="h-full w-full object-cover" />
-          </div>
-          <div className="flex flex-col justify-center">
-            <h2 className="font-display text-4xl font-semibold text-navy sm:text-5xl">Adaora Igbo</h2>
-            <p className="mt-2 text-lg text-navy/70">Director, Programming and Content Strategy</p>
-            <div className="mt-6 space-y-4 text-navy/80">
-              <p>
-                Adaora is a lifestyle and beauty entrepreneur with 10 years of experience. A content strategist, content
-                creator, and an advocate who is passionate about helping women navigate life and growth opportunities in
-                Canada.
-              </p>
-              <p>
-                She is also the founder of
-                <span className="font-semibold text-navy"> Women in Canada Empowerment Initiative</span>, a platform
-                dedicated to supporting and empowering immigrant women through information, networking, opportunities,
-                and community support.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-20 grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="order-2 flex flex-col justify-center lg:order-1">
-            <h2 className="font-display text-4xl font-semibold text-navy sm:text-5xl">Abigail Olusola-Omisore</h2>
-            <p className="mt-2 text-lg text-navy/70">Director, Planning and Resource Development</p>
-            <div className="mt-6 space-y-4 text-navy/80">
-              <p>
-                Abigail is a Senior Business Analyst and digital transformation professional with over seven years of
-                experience delivering business and technology solutions across Salesforce CRM, process optimization, and
-                stakeholder engagement.
-              </p>
-              <p>
-                She is passionate about using technology, innovation, and education to create opportunities that empower
-                individuals and communities.
-              </p>
-              <p>
-                Beyond her corporate career, Abigail is a tech mentor and BA coach, passionate about helping and
-                continuously inspiring transitioning professionals define their career plan and build the confidence to
-                pursue growth, purpose, and excellence.
-              </p>
-            </div>
-          </div>
-          <div className="order-1 relative aspect-[4/5] overflow-hidden rounded-3xl lg:order-2">
-            <img src={abigail.url} alt="Abigail Olusola-Omisore" width={1600} height={2000} loading="lazy" className="h-full w-full object-cover" />
-          </div>
+        <div className="grid gap-16 md:grid-cols-2 md:gap-x-10 md:gap-y-20 lg:gap-x-14">
+          {LEADERS.map((leader, i) => (
+            <LeaderCard key={leader.slug} leader={leader} position={i % 2 === 0 ? "left" : "right"} />
+          ))}
         </div>
       </section>
 
