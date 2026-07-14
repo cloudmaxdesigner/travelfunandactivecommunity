@@ -4,7 +4,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { InstagramSection } from "@/components/site/InstagramSection";
 import hero from "@/assets/hero-hike.jpg";
 import community from "@/assets/community-event.jpg";
-import leadership from "@/assets/leadership.jpg";
+import leadership from "@/assets/faith-oloruntoba.png.asset.json";
 import logo from "@/assets/tfac-logo.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -242,7 +242,7 @@ function Home() {
       <section id="leadership" className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
-            <img src={leadership} alt="Faith Oloruntoba" width={1600} height={2000} loading="lazy" className="h-full w-full object-cover" />
+            <img src={leadership.url} alt="Faith Oloruntoba" width={1600} height={2000} loading="lazy" className="h-full w-full object-cover" />
           </div>
           <div className="flex flex-col justify-center">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-sunset">Leadership</p>
