@@ -93,7 +93,7 @@ function LeaderDetail() {
           <ArrowLeft size={16} /> Back to leadership
         </Link>
 
-        <div className="mt-10 grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="mt-10 grid gap-12 lg:grid-cols-12 lg:gap-16 lg:items-start">
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-24">
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-cream shadow-xl shadow-navy/10">
