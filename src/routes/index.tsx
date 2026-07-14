@@ -4,7 +4,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { InstagramSection } from "@/components/site/InstagramSection";
 import { LeaderCard } from "@/components/site/LeaderCard";
 import { LEADERS } from "@/data/leaders";
-import hero from "@/assets/hero-hike.jpg";
+import hero from "@/assets/hero-community.png.asset.json";
 import community from "@/assets/community-group.png.asset.json";
 import logo from "@/assets/tfac-logo.asset.json";
 
@@ -69,7 +69,7 @@ function Home() {
     <SiteLayout>
       {/* HERO */}
       <section id="top" className="relative isolate overflow-hidden bg-navy text-cream">
-        <img src={hero} alt="TFAC community" width={1920} height={1200} className="absolute inset-0 h-full w-full object-cover opacity-45" />
+        <img src={hero.url} alt="TFAC community" width={1920} height={1200} className="absolute inset-0 h-full w-full object-cover opacity-45" />
         <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/60 to-navy" aria-hidden />
         <div className="relative mx-auto max-w-7xl px-6 pb-24 pt-24 sm:pt-32 lg:px-10 lg:pb-32 lg:pt-40">
           <div className="max-w-3xl">
