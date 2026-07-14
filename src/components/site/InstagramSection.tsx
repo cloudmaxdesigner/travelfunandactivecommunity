@@ -3,7 +3,7 @@ import { Instagram, ArrowUpRight } from "lucide-react";
 import logo from "@/assets/tfac-logo.asset.json";
 
 const IG_HANDLE = "travelfunandactivecommunity";
-const IG_URL = `https://www.instagram.com/${IG_HANDLE}/`;
+const IG_URL = `https://www.instagram.com/${IG_HANDLE}?igsh=OHhjNmgybzRpbmhr`;
 
 // Add post or reel URLs from @travelfunandactivecommunity here to embed them.
 // Examples:
