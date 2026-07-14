@@ -54,6 +54,7 @@ export const LEADERS: Leader[] = [
     lastName: "Igbo",
     role: "Director, Programming and Content Strategy",
     imageUrl: adaoraImg.url,
+    imageClassName: "object-center",
     shortBio:
       "Lifestyle and beauty entrepreneur with 10 years of experience — a content strategist and advocate helping women grow in Canada...",
     fullBio: [
