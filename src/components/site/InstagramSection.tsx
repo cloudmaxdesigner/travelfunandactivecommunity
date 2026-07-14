@@ -1,15 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { Instagram, ArrowUpRight } from "lucide-react";
 import logo from "@/assets/tfac-logo.asset.json";
-import community from "@/assets/community-event.jpg";
-import hero from "@/assets/hero-hike.jpg";
-import leadership from "@/assets/leadership.jpg";
 
 const IG_HANDLE = "travelfunandactivecommunity";
 const IG_URL = `https://www.instagram.com/${IG_HANDLE}/`;
 const IG_EMBED_URL = `https://www.instagram.com/${IG_HANDLE}/embed/`;
 
-const PREVIEW_TILES = [community, hero, leadership, community, hero, leadership];
 
 export function InstagramSection() {
   const [inView, setInView] = useState(false);
@@ -99,19 +95,18 @@ export function InstagramSection() {
                 </div>
               </div>
 
-              {/* Placeholder grid */}
+              {/* Placeholder grid — neutral tiles, no photos */}
               <div className="mt-6 grid grid-cols-3 gap-1.5 sm:gap-2">
-                {PREVIEW_TILES.map((src, i) => (
-                  <div key={i} className="relative aspect-square overflow-hidden rounded-md bg-muted">
-                    <img
-                      src={src}
-                      alt=""
-                      loading="lazy"
-                      className="h-full w-full object-cover"
-                    />
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="relative flex aspect-square items-center justify-center overflow-hidden rounded-md bg-gradient-to-br from-cream to-muted text-navy/20"
+                  >
+                    <Instagram size={28} strokeWidth={1.5} />
                   </div>
                 ))}
               </div>
+
 
               <div className="mt-6 flex items-center justify-between gap-3 text-sm text-navy/60">
                 <span className="inline-flex items-center gap-2">
