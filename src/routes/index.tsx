@@ -5,7 +5,7 @@ import { InstagramSection } from "@/components/site/InstagramSection";
 import { LeaderCard } from "@/components/site/LeaderCard";
 import { LEADERS } from "@/data/leaders";
 import hero from "@/assets/hero-community.png.asset.json";
-import community from "@/assets/community-selfie.jpg.asset.json";
+import community from "@/assets/community-group-photo.jpg.asset.json";
 import logo from "@/assets/tfac-logo.asset.json";
 
 export const Route = createFileRoute("/")({
