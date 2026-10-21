@@ -10,11 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FitcastIndexRouteImport } from './routes/fitcast.index'
 import { Route as LeadersSlugRouteImport } from './routes/leaders.$slug'
+import { Route as FitcastAppRouteImport } from './routes/fitcast.app'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FitcastIndexRoute = FitcastIndexRouteImport.update({
+  id: '/fitcast/',
+  path: '/fitcast/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LeadersSlugRoute = LeadersSlugRouteImport.update({
@@ -22,31 +29,44 @@ const LeadersSlugRoute = LeadersSlugRouteImport.update({
   path: '/leaders/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FitcastAppRoute = FitcastAppRouteImport.update({
+  id: '/fitcast/app',
+  path: '/fitcast/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/fitcast/app': typeof FitcastAppRoute
   '/leaders/$slug': typeof LeadersSlugRoute
+  '/fitcast/': typeof FitcastIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/fitcast/app': typeof FitcastAppRoute
   '/leaders/$slug': typeof LeadersSlugRoute
+  '/fitcast': typeof FitcastIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/fitcast/app': typeof FitcastAppRoute
   '/leaders/$slug': typeof LeadersSlugRoute
+  '/fitcast/': typeof FitcastIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/leaders/$slug'
+  fullPaths: '/' | '/fitcast/app' | '/leaders/$slug' | '/fitcast/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/leaders/$slug'
-  id: '__root__' | '/' | '/leaders/$slug'
+  to: '/' | '/fitcast/app' | '/leaders/$slug' | '/fitcast'
+  id: '__root__' | '/' | '/fitcast/app' | '/leaders/$slug' | '/fitcast/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FitcastAppRoute: typeof FitcastAppRoute
   LeadersSlugRoute: typeof LeadersSlugRoute
+  FitcastIndexRoute: typeof FitcastIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -58,6 +78,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/fitcast/': {
+      id: '/fitcast/'
+      path: '/fitcast'
+      fullPath: '/fitcast/'
+      preLoaderRoute: typeof FitcastIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/leaders/$slug': {
       id: '/leaders/$slug'
       path: '/leaders/$slug'
@@ -65,13 +92,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LeadersSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/fitcast/app': {
+      id: '/fitcast/app'
+      path: '/fitcast/app'
+      fullPath: '/fitcast/app'
+      preLoaderRoute: typeof FitcastAppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FitcastAppRoute: FitcastAppRoute,
   LeadersSlugRoute: LeadersSlugRoute,
+  FitcastIndexRoute: FitcastIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

@@ -118,3 +118,98 @@
     letter-spacing: -0.02em;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   FITCAST — AI stylist prototype (/fitcast)
+   Design language adapted from MotionSites "Synth Mode" (landing) and
+   "Coffee Rewards" (in-app glass UI + staggered entry motion).
+--------------------------------------------------------------------------- */
+.fc-orbitron { font-family: "Orbitron", sans-serif; }
+.fc-jakarta { font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif; }
+
+.fc-landing {
+  --pad-x: clamp(1.25rem, 4.5vw, 5rem);
+  --header-pt: clamp(1.25rem, 2.5vh, 2.5rem);
+  --gap-nav: clamp(1rem, 2.2vw, 2.25rem);
+  --logo: clamp(1.35rem, 1.2vw + 0.9rem, 2.1rem);
+  --logo-deg: clamp(0.65rem, 0.4vw + 0.45rem, 0.9rem);
+  --nav: clamp(0.65rem, 0.35vw + 0.5rem, 0.875rem);
+  --headline: clamp(2.15rem, 4.5vw + 0.75rem, 5.25rem);
+  --body: clamp(0.7rem, 0.35vw + 0.55rem, 0.9rem);
+  --micro: clamp(0.55rem, 0.25vw + 0.45rem, 0.7rem);
+  --btn-px: clamp(1.15rem, 1.4vw, 1.75rem);
+  --btn-py: clamp(0.6rem, 0.9vh, 0.85rem);
+  --feature-pad: clamp(1rem, 1.5vw, 1.75rem);
+  --feature-min: clamp(13rem, 18vw, 20rem);
+  --globe: clamp(2.25rem, 2.5vw + 1rem, 3.25rem);
+  --checker-w: clamp(2.75rem, 4.5vw, 6.5rem);
+  --checker-h: clamp(1.35rem, 2.2vw, 3rem);
+  --corner: clamp(0.65rem, 0.4vw + 0.4rem, 0.95rem);
+  --main-py: clamp(1.25rem, 4vh, 4rem);
+}
+
+.fc-app {
+  --fc-bg: #0e0c0b;
+  --fc-card: rgba(255, 255, 255, 0.06);
+  --fc-text: #efe9e2;
+  --fc-muted: rgba(239, 233, 226, 0.55);
+  --fc-accent: #d9ff3d;
+  background: var(--fc-bg);
+  color: var(--fc-text);
+  font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+.fc-scroll { scrollbar-width: none; }
+.fc-scroll::-webkit-scrollbar { display: none; }
+
+.fc-glass {
+  border: 0;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+    inset 1px 0 0 rgba(255, 255, 255, 0.07),
+    inset -1px 0 0 rgba(255, 255, 255, 0.07),
+    0 8px 24px rgba(0, 0, 0, 0.25);
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
+  backdrop-filter: blur(14px) saturate(1.3);
+  transition: transform 0.18s ease, background 0.2s ease;
+}
+.fc-glass:active { transform: scale(0.95); }
+
+@keyframes fc-hero-reveal { from { opacity: 0; transform: scale(1.01); } to { opacity: 1; transform: none; } }
+@keyframes fc-drop-in { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: none; } }
+@keyframes fc-fade-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes fc-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fc-kenburns { from { transform: scale(1.04) translateY(0); } to { transform: scale(1.14) translateY(-2%); } }
+@keyframes fc-notif { 0% { transform: translateY(-140%); } 12%, 88% { transform: none; } 100% { transform: translateY(-140%); } }
+@keyframes fc-punch { from { transform: scale(1.28); filter: contrast(1.3) saturate(1.2); } to { transform: scale(1.04); filter: none; } }
+@keyframes fc-flash { 0% { opacity: 0.95; } 100% { opacity: 0; } }
+@keyframes fc-shake {
+  0%, 100% { transform: translate(0, 0) scale(1.08); }
+  20% { transform: translate(-3%, 1%) scale(1.1) rotate(-1deg); }
+  40% { transform: translate(3%, -1%) scale(1.1) rotate(1deg); }
+  60% { transform: translate(-2%, 0) scale(1.09); }
+  80% { transform: translate(2%, 1%) scale(1.08); }
+}
+@keyframes fc-glide { from { transform: scale(1.18) translateX(-3%); } to { transform: scale(1.06) translateX(3%); } }
+@keyframes fc-caption { from { opacity: 0; transform: scale(1.35); letter-spacing: 0.4em; } to { opacity: 1; transform: none; } }
+@keyframes fc-pulse { 0% { box-shadow: 0 0 0 0 rgba(217, 255, 61, 0.55); } 100% { box-shadow: 0 0 0 14px rgba(217, 255, 61, 0); } }
+
+.fc-a-hero { animation: fc-hero-reveal 1.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.fc-a-drop { animation: fc-drop-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.fc-a-rise { animation: fc-fade-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.fc-a-fade { animation: fc-fade-in 0.8s ease-out both; }
+.fc-a-kenburns { animation: fc-kenburns 14s ease-in-out infinite alternate; }
+.fc-a-notif { animation: fc-notif 5.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.fc-a-punch { animation: fc-punch 0.32s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.fc-a-shake { animation: fc-shake 0.36s linear both; }
+.fc-a-glide { animation: fc-glide 1.4s ease-out both; }
+.fc-a-flash { animation: fc-flash 0.28s ease-out both; }
+.fc-a-caption { animation: fc-caption 0.38s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.fc-a-pulse { animation: fc-pulse 1.6s ease-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="fc-a-"] { animation: none !important; }
+}
+@media (min-width: 640px) and (max-height: 940px) { .fc-phone { zoom: 0.86; } }
+@media (min-width: 640px) and (max-height: 800px) { .fc-phone { zoom: 0.72; } }
