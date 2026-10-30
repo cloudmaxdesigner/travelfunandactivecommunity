@@ -276,7 +276,7 @@ export const TEMPLATES: EditTemplate[] = [
 ];
 
 export const RENDER_ENGINES = [
-  { id: "veo", name: "Veo 3.1 Fast", note: "Gemini API · ~$0.10/s · native audio" },
+  { id: "omni", name: "Gemini Omni Flash", note: "Gemini API · ~$0.10/s · native audio" },
   { id: "kling", name: "Kling via fal", note: "image→video · strong fabric motion" },
   { id: "higgs", name: "Higgsfield", note: "camera-move presets · verify API" },
 ] as const;
