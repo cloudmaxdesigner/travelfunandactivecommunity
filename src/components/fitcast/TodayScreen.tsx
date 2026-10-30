@@ -155,19 +155,6 @@ export function TodayScreen({
         </ul>
       </Card>
 
-      {/* Why */}
-      <Card className="fc-a-rise mx-4 mt-3 p-4" style={rise(1.02)}>
-        <p className="mb-2 text-[13px] font-medium text-[var(--fc-muted)]">Why this works</p>
-        <ul className="space-y-1.5 text-[14px] leading-snug">
-          {outfit.reasons.map((r) => (
-            <li key={r} className="flex gap-2">
-              <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-[var(--fc-accent)]" />
-              {r}
-            </li>
-          ))}
-        </ul>
-      </Card>
-
       <div className="fc-a-fade px-4 pb-6 pt-5" style={rise(1.1)}>
         <button
           type="button"
