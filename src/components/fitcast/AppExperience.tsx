@@ -1,7 +1,14 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Clapperboard, ScanFace, Shirt, Sun } from "lucide-react";
-import { CLOSET, LOOK_IMAGES, VIBES, type ClosetItem, type Vibe } from "@/lib/fitcast/data";
+import {
+  CLOSET,
+  MODEL_NAMES,
+  MODEL_SRC,
+  VIBE_LOOKS,
+  type ClosetItem,
+  type Vibe,
+} from "@/lib/fitcast/data";
 import { FALLBACK_WEATHER, fetchWeather, recommend } from "@/lib/fitcast/engine";
 import { ClosetScreen } from "./ClosetScreen";
 import { EditScreen } from "./EditScreen";
@@ -36,12 +43,13 @@ export function AppExperience({ className = "" }: { className?: string }) {
     () => recommend(closet, weather, vibe, seed),
     [closet, weather, vibe, seed],
   );
-  const vibeIndex = VIBES.findIndex((v) => v.id === vibe);
-  const heroImage = LOOK_IMAGES[(seed + vibeIndex) % LOOK_IMAGES.length];
-  const editImages = useMemo(
-    () => LOOK_IMAGES.map((_, i) => LOOK_IMAGES[(i + seed + vibeIndex) % LOOK_IMAGES.length]),
-    [seed, vibeIndex],
-  );
+  const looks = VIBE_LOOKS[vibe];
+  const heroImage = MODEL_SRC[looks[(seed - 1) % looks.length]];
+  // The edit opens on today's look, then cuts through the rest of the week.
+  const editImages = useMemo(() => {
+    const first = looks[(seed - 1) % looks.length];
+    return [first, ...MODEL_NAMES.filter((n) => n !== first)].map((n) => MODEL_SRC[n]);
+  }, [looks, seed]);
   const weatherLine = `${Math.round(weather.temp)}° ${weather.label.toLowerCase()} in ${weather.city}`;
 
   // The morning push, replayed in-app so the prototype shows the moment the user gets it.

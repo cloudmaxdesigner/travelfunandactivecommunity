@@ -281,4 +281,32 @@ export const RENDER_ENGINES = [
   { id: "higgs", name: "Higgsfield", note: "camera-move presets · verify API" },
 ] as const;
 
-export const LOOK_IMAGES = [IMAGES.base, IMAGES.reveal, IMAGES.orla, IMAGES.eyewear, IMAGES.synth];
+// Background-removed model cut-outs in public/fitcast/models — stand-ins for the user's
+// AI twin renders. Unsplash (free licence) plus three from the MotionSites Sur(face) and
+// Maren prompts; sources in public/fitcast/models/CREDITS.md.
+export const MODEL_NAMES = [
+  "navy-suit",
+  "plaid-coat",
+  "pink-sweater",
+  "blue-coat",
+  "striped-trousers",
+  "yellow-tracksuit",
+  "camel-blazer",
+  "chevron-boots",
+  "lilac-tee",
+  "grey-knit",
+  "red-straps",
+] as const;
+export type ModelName = (typeof MODEL_NAMES)[number];
+
+export const MODEL_SRC = Object.fromEntries(
+  MODEL_NAMES.map((n) => [n, `/fitcast/models/${n}.webp`]),
+) as Record<ModelName, string>;
+
+export const VIBE_LOOKS: Record<Vibe, ModelName[]> = {
+  clean: ["navy-suit", "camel-blazer", "blue-coat"],
+  street: ["pink-sweater", "yellow-tracksuit", "lilac-tee", "grey-knit"],
+  night: ["striped-trousers", "plaid-coat", "red-straps"],
+  soft: ["chevron-boots", "blue-coat", "lilac-tee"],
+  work: ["navy-suit", "plaid-coat", "camel-blazer"],
+};

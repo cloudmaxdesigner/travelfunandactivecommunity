@@ -4,6 +4,9 @@ import { RENDER_ENGINES, TEMPLATES } from "@/lib/fitcast/data";
 import { Logo } from "./Shapes";
 import { Card, Chip, GlassCircle, ScreenHeader, rise } from "./ui";
 
+// Backdrops the edit cuts between, one per beat.
+const BACKDROPS = ["#ff5c39", "#1d1a18", "#3046ff", "#6b3df5", "#0e0c0b", "#d4a017"];
+
 const STAGES = [
   "Locking your twin's face & body",
   "Generating motion clips",
@@ -61,16 +64,28 @@ export function EditScreen({ images, weatherLine }: { images: string[]; weatherL
       {/* 9:16 live preview */}
       <div className="fc-a-rise px-4" style={rise(0.12)}>
         <div className="relative mx-auto aspect-[9/16] w-full max-w-[300px] overflow-hidden rounded-[28px] bg-black">
+          {/* Colour-block backdrop that cuts with the beat; the caption sits behind the model. */}
+          <div
+            className="absolute inset-0 transition-colors duration-100"
+            style={{ background: BACKDROPS[beat % BACKDROPS.length] }}
+          />
+          <p
+            key={`c${beat}-${templateId}`}
+            className="fc-orbitron fc-a-caption absolute inset-x-0 top-[22%] px-3 text-center text-[38px] font-black uppercase leading-[0.95] tracking-[0.04em] text-white"
+          >
+            {caption}
+          </p>
           <img
             key={`${beat}-${templateId}`}
             src={images[beat % images.length]}
             alt="Edit frame"
-            className={`absolute inset-0 h-full w-full object-cover fc-a-${effect}`}
+            className={`absolute inset-x-0 bottom-0 mx-auto h-[84%] w-auto max-w-[94%] object-contain object-bottom fc-a-${effect === "flash" ? "punch" : effect}`}
+            style={{ transformOrigin: "50% 100%" }}
           />
           {effect === "flash" && (
             <div key={`f${beat}`} className="fc-a-flash absolute inset-0 bg-white" />
           )}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/55" />
 
           <div className="absolute inset-x-3 top-3 flex gap-1">
             {template.captions.map((_, i) => (
@@ -86,13 +101,6 @@ export function EditScreen({ images, weatherLine }: { images: string[]; weatherL
             <Logo className="text-[11px]" />
             <span>{template.bpm} BPM</span>
           </div>
-
-          <p
-            key={`c${beat}-${templateId}`}
-            className="fc-orbitron fc-a-caption absolute inset-x-0 top-1/2 -translate-y-1/2 px-4 text-center text-[26px] font-extrabold uppercase leading-tight tracking-[0.08em] text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)]"
-          >
-            {caption}
-          </p>
 
           <div className="absolute inset-x-4 bottom-4 flex items-end justify-between">
             <p className="max-w-[70%] text-[11px] font-medium leading-snug text-white/85">

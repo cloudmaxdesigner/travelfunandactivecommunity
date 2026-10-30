@@ -16,6 +16,12 @@ import { Card, Chip, GlassCircle, Swatch, rise, useTodayLabel } from "./ui";
 const LAYER_LABEL = ["Light", "One layer", "Mid layer", "Bundled"];
 const ORDER: Category[] = ["outer", "top", "bottom", "shoes", "accessory"];
 
+// Backdrop the twin stands in, tinted by the forecast.
+const SCENE = {
+  rain: "radial-gradient(120% 80% at 50% 30%, #3b4a5c 0%, #1b2027 55%, var(--fc-bg) 100%)",
+  clear: "radial-gradient(120% 80% at 50% 30%, #6e5435 0%, #2a1f16 55%, var(--fc-bg) 100%)",
+};
+
 export function TodayScreen({
   weather,
   outfit,
@@ -41,20 +47,31 @@ export function TodayScreen({
   return (
     <div>
       {/* Hero — the user's AI twin wearing today's fit */}
-      <div className="relative h-[430px] w-full overflow-hidden">
-        <div className="fc-a-hero absolute inset-0">
+      <div
+        className="relative h-[500px] w-full overflow-hidden"
+        style={{ background: weather.rainy ? SCENE.rain : SCENE.clear }}
+      >
+        <p
+          aria-hidden
+          className="fc-orbitron fc-a-fade absolute inset-x-0 top-[92px] whitespace-nowrap text-center text-[64px] font-black uppercase leading-none tracking-[0.04em] text-white/[0.07] sm:top-[118px]"
+        >
+          {vibeLabel}
+        </p>
+        <span className="absolute bottom-[112px] left-1/2 h-6 w-44 -translate-x-1/2 rounded-full bg-black/45 blur-xl" />
+        <div className="fc-a-hero absolute inset-x-0 bottom-[118px] top-[78px] sm:top-[104px]">
           <img
             key={image}
             src={image}
             alt="Your AI twin wearing today's outfit"
-            className="fc-a-kenburns h-full w-full object-cover object-top"
+            className="fc-a-kenburns mx-auto h-full w-auto max-w-[86%] object-contain object-bottom"
+            style={{ transformOrigin: "50% 100%" }}
           />
         </div>
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(14,12,11,0.35) 0%, transparent 22%, transparent 52%, var(--fc-bg) 100%)",
+              "linear-gradient(to bottom, rgba(14,12,11,0.35) 0%, transparent 18%, transparent 70%, var(--fc-bg) 100%)",
           }}
         />
         <div className="absolute inset-x-4 top-[18px] flex items-center justify-between sm:top-[52px]">
